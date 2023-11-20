@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Question from "./Question";
 import quiz from "../data/quiz";
-
 function App() {
   const [questions, setQuestions] = useState(quiz);
   const [currentQuestionId, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState(0);
   const currentQuestion = questions.find((q) => q.id === currentQuestionId);
-
   function handleQuestionAnswered(correct) {
     if (currentQuestionId < questions.length) {
       setCurrentQuestion((currentQuestionId) => currentQuestionId + 1);
@@ -18,7 +16,6 @@ function App() {
       setScore((score) => score + 1);
     }
   }
-
   return (
     <main>
       <section>
@@ -37,5 +34,3 @@ function App() {
     </main>
   );
 }
-
-export default App;
